@@ -15,6 +15,19 @@ const OzImage = () => (
   </div>
 );
 
+const GithubLink = () => {
+  return (
+    <div className="pt-4 pb-10 lg:pb-0 lg:pt-16 absolute">
+      <a
+        href="https://github.com/OzTamir/Homepage"
+        className="text-slate-700/30 text-[0.75rem] hover:text-slate-700"
+      >
+        <pre>This site is open-source! 🚀</pre>
+      </a>
+    </div>
+  );
+};
+
 const Hero = () => (
   <div className="flex flex-col justify-center lg:w-1/2 sm:max-md:w-full h-full my-auto px-10 lg:px-0 lg:mr-32">
     <div className="text-center lg:text-left">
@@ -48,6 +61,9 @@ const Hero = () => (
       </div>
 
       <Socials />
+    </div>
+    <div className="flex justify-center pt-4">
+      <GithubLink />
     </div>
   </div>
 );
