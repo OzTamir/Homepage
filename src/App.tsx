@@ -6,7 +6,7 @@ const OzImage = () => (
   <div className="lg:h-[100svh] h-[50svh] pt-6 lg:pt-0">
     <img
       src="/me.png"
-      className="h-full lg:pl-10 pl-[5.5rem]"
+      className="h-full lg:pl-10 pl-[4.5rem]"
       alt="Here I'd put an image of me - if the server would allow me!"
     />
   </div>
