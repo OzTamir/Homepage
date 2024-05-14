@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { Socials } from "./components/Socials";
+import BlogPosts from "./components/BlogPosts";
 
 const OzImage = () => (
   <div className="lg:h-[100svh] h-[50svh] pt-6 lg:pt-0">
@@ -41,6 +42,9 @@ const Hero = () => (
           </a>{" "}
           for more.
         </p>
+      </div>
+      <div className="flex flex-col lg:flex-row justify-between border-b-2 border-b-indigo-700/20 lg:mb-10 mb-4">
+        <BlogPosts />
       </div>
 
       <Socials />
