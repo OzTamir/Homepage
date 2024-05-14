@@ -3,18 +3,16 @@ import useLatestPosts from "../hooks/useLatestPosts";
 const BlogPosts = () => {
   const { posts, loading, error } = useLatestPosts();
 
-  console.log(posts);
-
   if (loading) {
     return <div className="text-center">Loading...</div>;
   }
 
-  if (error) {
-    return <div className="text-center text-red-500">{error}</div>;
+  if (error || !posts) {
+    return null;
   }
 
   return (
-    <div className="container mx-auto px-4 pb-10">
+    <div className="container mx-auto px-4 pb-10 border-b-2 border-b-indigo-700/20 lg:mb-10 mb-4">
       <h2 className="text-2xl font-bold mb-4 text-center">
         <a href="https://posts.oztamir.com">
           <code>Latest Blog Posts</code>

@@ -43,7 +43,7 @@ const Hero = () => (
           for more.
         </p>
       </div>
-      <div className="flex flex-col lg:flex-row justify-between border-b-2 border-b-indigo-700/20 lg:mb-10 mb-4">
+      <div className="flex flex-col lg:flex-row justify-between ">
         <BlogPosts />
       </div>
 
