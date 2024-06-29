@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-const useDarkMode = (): boolean => {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+const useDarkMode = (): boolean | undefined => {
+  const [isDarkMode, setIsDarkMode] = useState<boolean | undefined>(undefined);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");

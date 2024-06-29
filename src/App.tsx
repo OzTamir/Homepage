@@ -5,7 +5,10 @@ import BlogPosts from "./components/BlogPosts";
 
 const OzImage = () => {
   const isDarkMode = useDarkMode();
-  console.log(isDarkMode);
+  if (isDarkMode === undefined) {
+    return null;
+  }
+
   return (
     <div className="lg:h-[100svh] h-[50svh] pt-6 lg:pt-0">
       <img
