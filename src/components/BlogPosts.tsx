@@ -36,7 +36,12 @@ const BlogPosts = () => {
                 {post.title}
               </div>
               <p className="text-gray-700 dark:text-stone-300 text-base">
-                {post.title.length < 30 ? post.excerpt : "Read more..."}
+                {post.title.length < 30
+                  ? post.excerpt
+                  : post.excerpt.slice(
+                      0,
+                      post.excerpt.slice(0, 30).lastIndexOf(" ")
+                    ) + "..."}
               </p>
             </div>
           </div>
