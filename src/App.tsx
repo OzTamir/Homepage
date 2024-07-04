@@ -10,10 +10,10 @@ const OzImage = () => {
   }
 
   return (
-    <div className="lg:h-[100svh] h-[50svh] pt-6 lg:pt-0">
+    <div className="lg:h-[100svh] h-[50svh] pt-6 lg:pt-0 w-full lg:w-auto flex justify-center">
       <img
         src={isDarkMode ? "/me_dark.png" : "/me.png"}
-        className="h-full lg:pl-10 pl-[4.5rem]"
+        className="h-full lg:pl-10 pr-8 lg:pr-0"
         alt="Here I'd put an image of me - if the server would allow me!"
       />
     </div>
