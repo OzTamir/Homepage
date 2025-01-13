@@ -55,7 +55,11 @@ const Hero = () => (
           ,
           <br />
           but I never skip a chance to work on side projects - see my{" "}
-          <a href="posts.oztamir.com" className="text-golden">
+          <a
+            href="https://posts.oztamir.com/"
+            target="_blank"
+            className="text-golden"
+          >
             blog
           </a>{" "}
           for more.
