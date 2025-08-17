@@ -48,10 +48,10 @@ const Hero = () => (
         <p className="font-normal text-gray-500 dark:text-stone-200 text-sm md:text-md xl:text-lg lg:mb-10 mb-4">
           Hi, I’m <span className="text-golden font-bold mr-1">Oz</span> 👋
           <br />
-          I'm currently working on R&D and Marketing over at{" "}
-          <a href="https://blockaid.io" className="text-golden">
-            Blockaid
-          </a>
+          I'm currently working on something new at{" "}
+          <span className="bg-golden text-white mx-2 px-0 py-0.5 rounded font-mono tracking-widest hover:bg-black hover:text-white">
+            [REDACTED]
+          </span>
           ,
           <br />
           but I never skip a chance to work on side projects - see my{" "}
