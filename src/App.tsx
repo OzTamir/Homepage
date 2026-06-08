@@ -15,7 +15,7 @@ const Hero = () => (
     <p className="mt-6 text-sm font-medium uppercase tracking-[0.25em] text-golden">
       Oz Tamir
     </p>
-    <h1 className="mt-3 text-4xl font-bold leading-tight text-paper sm:text-5xl md:text-6xl">
+    <h1 className="mt-3 text-2xl font-bold leading-tight text-paper sm:text-3xl md:text-4xl">
       ¯\_(ツ)_/¯ as a Service
     </h1>
     <p className="mt-6 max-w-xl text-sm leading-relaxed text-paper/70 sm:text-base">
