@@ -1,87 +1,71 @@
-import "./App.css";
-import useDarkMode from "./hooks/useDarkMode";
-import { Socials } from "./components/Socials";
+import Avatar from "./components/Avatar";
+import LinkBar, { NavLink } from "./components/LinkBar";
 import BlogPosts from "./components/BlogPosts";
+import { Socials } from "./components/Socials";
 
-const OzImage = () => {
-  const isDarkMode = useDarkMode();
-  if (isDarkMode === undefined) {
-    return null;
-  }
-
-  return (
-    <div className="lg:h-[100svh] h-[50svh] pt-6 lg:pt-0 w-full lg:w-auto flex justify-center">
-      <img
-        src={isDarkMode ? "/me_dark.png" : "/me.png"}
-        className="h-full lg:pl-10 pr-8 lg:pr-0"
-        alt="Here I'd put an image of me - if the server would allow me!"
-      />
-    </div>
-  );
-};
-
-const GithubLink = () => {
-  return (
-    <div className="pt-4 pb-10 lg:pb-0 lg:pt-16 absolute">
-      <a
-        href="https://github.com/OzTamir/Homepage"
-        className="text-slate-700/30 text-[0.75rem] hover:text-slate-700 dark:hover:text-slate-300 font-semibold dark:text-slate-500/50"
-      >
-        <pre>This site is open-source! 🚀</pre>
-      </a>
-    </div>
-  );
-};
+// Generic, data-driven nav. Add a "Projects" line here when ready.
+const navLinks: NavLink[] = [
+  { label: "Blog", href: "https://posts.oztamir.com/", external: true },
+  { label: "Talks", href: "https://talks.oztamir.com/", external: true },
+];
 
 const Hero = () => (
-  <div className="flex flex-col justify-center lg:w-1/2 sm:max-md:w-full h-full my-auto px-10 lg:px-0 lg:mr-32">
-    <div className="text-center lg:text-left">
-      <div className="flex flex-col justify-center lg:justify-start border-b-2 border-b-golden/20 lg:mb-10 mb-4">
-        <div className="flex items-center justify-center lg:justify-start gap-2">
-          <p className="font-medium text-golden text-xl">Oz Tamir</p>
-        </div>
-
-        <h1 className="font-bold text-gray-800 text-4xl md:text-6xl xl:text-7xl lg:mb-10 mb-4 dark:text-stone-100">
-          ¯\_(ツ)_/¯ as a Service
-        </h1>
-
-        <p className="font-normal text-gray-500 dark:text-stone-200 text-sm md:text-md xl:text-lg lg:mb-10 mb-4">
-          Hi, I’m <span className="text-golden font-bold mr-1">Oz</span> 👋
-          <br />
-          I'm currently working on something new at{" "}
-          <span className="bg-golden text-white mx-2 px-0 py-0.5 rounded font-mono tracking-widest hover:bg-black hover:text-white">
-            [REDACTED]
-          </span>
-          ,
-          <br />
-          but I never skip a chance to work on side projects - see my{" "}
-          <a
-            href="https://posts.oztamir.com/"
-            target="_blank"
-            className="text-golden"
-          >
-            blog
-          </a>{" "}
-          for more.
-        </p>
-      </div>
-      <div className="flex flex-col lg:flex-row justify-between ">
-        <BlogPosts />
-      </div>
-
-      <Socials />
+  <header className="flex flex-col items-center text-center">
+    <Avatar />
+    <p className="mt-6 text-sm font-medium uppercase tracking-[0.25em] text-golden">
+      Oz Tamir
+    </p>
+    <h1 className="mt-3 text-4xl font-bold leading-tight text-paper sm:text-5xl md:text-6xl">
+      ¯\_(ツ)_/¯ as a Service
+    </h1>
+    <p className="mt-6 max-w-xl text-sm leading-relaxed text-paper/70 sm:text-base">
+      Hi, I'm <span className="font-bold text-golden">Oz</span> 👋
+      <br />
+      I'm currently working on something new at{" "}
+      <span className="mx-1 rounded bg-golden px-1 py-0.5 font-mono tracking-widest text-ink">
+        [REDACTED]
+      </span>
+      ,
+      <br />
+      but I never skip a chance to work on side projects — see my{" "}
+      <a
+        href="https://posts.oztamir.com/"
+        target="_blank"
+        rel="noreferrer"
+        className="text-golden underline-offset-4 hover:underline"
+      >
+        blog
+      </a>{" "}
+      for more.
+    </p>
+    <div className="mt-6">
+      <LinkBar links={navLinks} />
     </div>
-    <div className="flex justify-center pt-4">
-      <GithubLink />
-    </div>
-  </div>
+  </header>
+);
+
+const Footer = () => (
+  <footer className="flex flex-col items-center gap-6">
+    <Socials />
+    <a
+      href="https://github.com/OzTamir/Homepage"
+      target="_blank"
+      rel="noreferrer"
+      className="font-mono text-xs text-paper/25 transition-colors hover:text-paper/60"
+    >
+      This site is open-source! 🚀
+    </a>
+  </footer>
 );
 
 function App() {
   return (
-    <div className="flex flex-col lg:flex-row justify-between w-full h-full">
-      <OzImage />
+    <div className="mx-auto flex min-h-[100svh] w-full max-w-3xl flex-col gap-14 px-6 py-16 sm:py-24">
       <Hero />
+      <main className="flex flex-1 flex-col">
+        <BlogPosts />
+      </main>
+      <Footer />
     </div>
   );
 }
