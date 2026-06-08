@@ -73,7 +73,7 @@ const Hero = () => (
         rel="noreferrer"
         className="text-golden underline-offset-4 hover:underline"
       >
-        AI shennigens
+        AI shenanigans
       </a>
       , and{" "}
       <a
