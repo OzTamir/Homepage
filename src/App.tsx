@@ -30,24 +30,61 @@ const Hero = () => (
       {...revealAt(240)}
       className="reveal mt-6 max-w-xl text-sm leading-relaxed text-paper/70 sm:text-base"
     >
-      Hi, I'm <span className="font-bold text-golden">Oz</span> 👋
-      <br />
-      I'm currently working on something new at{" "}
+      I'm <span className="font-bold text-golden">Oz</span>, a two-times founding
+      engineer at cybersecurity startups, currently leading AI enablement
+      and adoption at{" "}
       <span className="mx-1 rounded bg-golden px-1 py-0.5 font-mono tracking-widest text-ink">
         [REDACTED]
       </span>
-      ,
+      .
       <br />
-      but I never skip a chance to work on side projects — see my{" "}
+      <br />
+      I like to write about{" "}
+      <a
+        href="https://posts.oztamir.com/the-curious-case-of-arp-netmask/"
+        target="_blank"
+        rel="noreferrer"
+        className="text-golden underline-offset-4 hover:underline"
+      >
+        low level security stuff
+      </a>
+      ,{" "}
+      <a
+        href="https://posts.oztamir.com/passing-context-to-auth0-actions-by-abusing-the-authorize-endpoint/"
+        target="_blank"
+        rel="noreferrer"
+        className="text-golden underline-offset-4 hover:underline"
+      >
+        crazy engineering hacks
+      </a>
+      ,{" "}
+      <a
+        href="https://posts.oztamir.com/hacking-a-cheap-ring-light-to-be-smart/"
+        target="_blank"
+        rel="noreferrer"
+        className="text-golden underline-offset-4 hover:underline"
+      >
+        DIY Home Automation Projects
+      </a>
+      ,{" "}
+      <a
+        href="https://posts.oztamir.com/i-now-use-ai-agents-to-text-you-back/"
+        target="_blank"
+        rel="noreferrer"
+        className="text-golden underline-offset-4 hover:underline"
+      >
+        AI shennigens
+      </a>
+      , and{" "}
       <a
         href="https://posts.oztamir.com/"
         target="_blank"
         rel="noreferrer"
         className="text-golden underline-offset-4 hover:underline"
       >
-        blog
-      </a>{" "}
-      for more.
+        a lot of other stuff
+      </a>
+      .
     </p>
   </header>
 );
