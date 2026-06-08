@@ -31,12 +31,16 @@ const socialLinks: Social[] = [
 
 export const Socials = () => {
   return (
-    <div className="flex flex-row gap-4 justify-center">
+    <div className="flex flex-row gap-5">
       {socialLinks.map((social) => (
         <a
           key={social.title}
           href={social.href}
-          className="text-darkGolden hover:text-black font-semibold text-lg"
+          target="_blank"
+          rel="noreferrer"
+          aria-label={social.title}
+          title={social.title}
+          className="text-paper/40 transition-colors hover:text-golden"
         >
           {social.icon}
         </a>

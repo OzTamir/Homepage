@@ -1,0 +1,21 @@
+# Oz Tamir
+
+> Developer, marketer, maker, and meme-generator — all packed into one person.
+> This is the personal homepage at oztamir.com, linking out to Oz's writing and talks.
+
+Oz Tamir builds software and side projects, writes about engineering, and gives
+technical talks. The homepage is a minimal single-page site; most of the actual
+content lives on the blog and talks sites linked below.
+
+## Main
+
+- [Blog](https://posts.oztamir.com/): Long-form posts on engineering, side projects, and tools Oz has built.
+- [Talks](https://talks.oztamir.com/): Slides, recordings, and write-ups from technical talks.
+- [Homepage](https://oztamir.com): This site.
+
+## Code & social
+
+- [GitHub](https://github.com/OzTamir): Open-source projects, including this homepage.
+- [Twitter/X](https://twitter.com/oztamir)
+- [LinkedIn](https://linkedin.com/in/oz-tamir-7179b185)
+- [Email](mailto:oz@tamir.fun)
