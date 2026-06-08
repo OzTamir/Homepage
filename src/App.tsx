@@ -60,7 +60,7 @@ const Footer = () => (
 
 function App() {
   return (
-    <div className="mx-auto flex min-h-[100svh] w-full max-w-3xl flex-col gap-14 px-6 py-16 sm:py-24">
+    <div className="mx-auto flex min-h-[100svh] w-full max-w-2xl flex-col gap-14 px-8 py-16 sm:px-12 sm:py-24">
       <Hero />
       <main className="flex flex-1 flex-col">
         <BlogPosts />
