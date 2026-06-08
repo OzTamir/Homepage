@@ -22,9 +22,7 @@ const SectionList = ({ title, titleHref, items }: SectionListProps) => {
   if (items.length === 0) return null;
 
   const heading = (
-    <code className="text-sm uppercase tracking-[0.2em] text-paper/50">
-      {title}
-    </code>
+    <code className="text-sm tracking-[0.15em] text-paper/50">{title}</code>
   );
 
   return (

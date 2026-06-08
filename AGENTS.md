@@ -44,23 +44,28 @@ Keep new UI consistent with this. Prefer Tailwind utility classes over custom CS
 
 ## Structure
 
-- `src/App.tsx` — page composition (Hero, LinkBar, BlogPosts, Socials, Footer)
+- `src/App.tsx` — page composition (Hero, `~/posts`, `~/talks`, Socials, Footer)
 - `src/components/`
-  - `Avatar.tsx` — round profile photo
-  - `LinkBar.tsx` — generic, data-driven row of text links (Blog · Talks · …)
+  - `Avatar.tsx` — round profile photo with golden halo
   - `SectionList.tsx` — generic titled list of rows; reused for any "section"
-    (blog posts now, talks/projects later)
-  - `BlogPosts.tsx` — thin adapter: fetches posts, feeds `SectionList`
+  - `BlogPosts.tsx` — thin adapter: fetches posts, feeds `SectionList` (`~/posts`)
+  - `Talks.tsx` — thin adapter: fetches talks, feeds `SectionList` (`~/talks`)
   - `Socials.tsx` — footer icon row
-- `src/hooks/useLatestPosts.ts` — fetches latest posts from Ghost
-- `src/api/ghostApi.ts` — axios client for the Ghost Content API
+- `src/hooks/`
+  - `useLatestPosts.ts` — fetches latest posts from Ghost
+  - `useTalks.ts` — fetches talks from the talks site API
+- `src/api/`
+  - `ghostApi.ts` — axios client for the Ghost Content API
+  - `talksApi.ts` — axios client for `talks.oztamir.com/api`
 - `public/` — static assets, `llms.txt`, profile images, favicon, OG image
 
-## Adding a section (Talks, Projects, …)
+## Adding a section (Projects, …)
 
-`SectionList` is generic. To add a "Talks" section, render another `<SectionList
-title="Talks" items={...} />` in `App.tsx`. To add a top-level nav entry, append
-to the `navLinks` array in `App.tsx`.
+`SectionList` is generic. Mirror `BlogPosts`/`Talks`: write a small adapter that
+fetches (or hard-codes) data, maps it to `SectionItem[]`, and renders a
+`<SectionList title="~/projects" items={...} />`. Then drop the adapter into the
+`<main>` in `App.tsx`. Section headings render as authored (terminal-style
+`~/path` labels), so keep the lowercase convention.
 
 ## Conventions
 

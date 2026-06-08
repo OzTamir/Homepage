@@ -1,13 +1,7 @@
 import Avatar from "./components/Avatar";
-import LinkBar, { NavLink } from "./components/LinkBar";
 import BlogPosts from "./components/BlogPosts";
+import Talks from "./components/Talks";
 import { Socials } from "./components/Socials";
-
-// Generic, data-driven nav. Add a "Projects" line here when ready.
-const navLinks: NavLink[] = [
-  { label: "Blog", href: "https://posts.oztamir.com/", external: true },
-  { label: "Talks", href: "https://talks.oztamir.com/", external: true },
-];
 
 // Shared helper for the staggered page-load entrance.
 const revealAt = (ms: number) => ({
@@ -55,9 +49,6 @@ const Hero = () => (
       </a>{" "}
       for more.
     </p>
-    <div {...revealAt(320)} className="reveal mt-7">
-      <LinkBar links={navLinks} />
-    </div>
   </header>
 );
 
@@ -81,10 +72,15 @@ function App() {
       <div aria-hidden className="atmosphere" />
       <div className="mx-auto flex min-h-[100svh] w-full max-w-2xl flex-col gap-14 px-8 py-16 sm:px-12 sm:py-24">
         <Hero />
-        <main {...revealAt(400)} className="reveal flex flex-1 flex-col">
-          <BlogPosts />
+        <main className="flex flex-1 flex-col gap-14">
+          <div {...revealAt(360)} className="reveal">
+            <BlogPosts />
+          </div>
+          <div {...revealAt(440)} className="reveal">
+            <Talks />
+          </div>
         </main>
-        <div {...revealAt(480)} className="reveal">
+        <div {...revealAt(520)} className="reveal">
           <Footer />
         </div>
       </div>

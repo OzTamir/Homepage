@@ -32,7 +32,7 @@ const BlogPosts = () => {
 
   return (
     <SectionList
-      title="Latest Posts"
+      title="~/posts"
       titleHref="https://posts.oztamir.com/"
       items={items}
     />
