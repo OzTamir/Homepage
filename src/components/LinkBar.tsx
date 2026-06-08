@@ -17,7 +17,7 @@ const LinkBar = ({ links }: { links: NavLink[] }) => (
           href={link.href}
           target={link.external ? "_blank" : undefined}
           rel={link.external ? "noreferrer" : undefined}
-          className="transition-colors hover:text-golden"
+          className="relative transition-colors duration-200 after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-golden after:transition-all after:duration-300 hover:text-golden hover:after:w-full"
         >
           {link.label}
         </a>

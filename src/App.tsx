@@ -9,16 +9,33 @@ const navLinks: NavLink[] = [
   { label: "Talks", href: "https://talks.oztamir.com/", external: true },
 ];
 
+// Shared helper for the staggered page-load entrance.
+const revealAt = (ms: number) => ({
+  className: "reveal",
+  style: { animationDelay: `${ms}ms` },
+});
+
 const Hero = () => (
   <header className="flex flex-col items-center text-center">
-    <Avatar />
-    <p className="mt-6 text-sm font-medium uppercase tracking-[0.25em] text-golden">
-      Oz Tamir
+    <div {...revealAt(0)}>
+      <Avatar />
+    </div>
+    <p
+      {...revealAt(80)}
+      className="reveal mt-6 text-sm font-medium uppercase tracking-[0.25em] text-golden"
+    >
+      Oz Tamir<span className="cursor ml-0.5 font-normal text-golden">_</span>
     </p>
-    <h1 className="mt-3 text-2xl font-bold leading-tight text-paper sm:text-3xl md:text-4xl">
+    <h1
+      {...revealAt(160)}
+      className="reveal mt-3 text-2xl font-bold leading-tight tracking-tight text-paper sm:text-3xl md:text-4xl"
+    >
       ¯\_(ツ)_/¯ as a Service
     </h1>
-    <p className="mt-6 max-w-xl text-sm leading-relaxed text-paper/70 sm:text-base">
+    <p
+      {...revealAt(240)}
+      className="reveal mt-6 max-w-xl text-sm leading-relaxed text-paper/70 sm:text-base"
+    >
       Hi, I'm <span className="font-bold text-golden">Oz</span> 👋
       <br />
       I'm currently working on something new at{" "}
@@ -38,7 +55,7 @@ const Hero = () => (
       </a>{" "}
       for more.
     </p>
-    <div className="mt-6">
+    <div {...revealAt(320)} className="reveal mt-7">
       <LinkBar links={navLinks} />
     </div>
   </header>
@@ -60,13 +77,18 @@ const Footer = () => (
 
 function App() {
   return (
-    <div className="mx-auto flex min-h-[100svh] w-full max-w-2xl flex-col gap-14 px-8 py-16 sm:px-12 sm:py-24">
-      <Hero />
-      <main className="flex flex-1 flex-col">
-        <BlogPosts />
-      </main>
-      <Footer />
-    </div>
+    <>
+      <div aria-hidden className="atmosphere" />
+      <div className="mx-auto flex min-h-[100svh] w-full max-w-2xl flex-col gap-14 px-8 py-16 sm:px-12 sm:py-24">
+        <Hero />
+        <main {...revealAt(400)} className="reveal flex flex-1 flex-col">
+          <BlogPosts />
+        </main>
+        <div {...revealAt(480)} className="reveal">
+          <Footer />
+        </div>
+      </div>
+    </>
   );
 }
 
