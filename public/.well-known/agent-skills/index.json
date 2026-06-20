@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "full-deliberate-mode",
+      "type": "skill-md",
+      "description": "Structured thinking mode that never ghostwrites — it organizes and reflects back your own words and uses questions to help you articulate a structure you like.",
+      "url": "https://raw.githubusercontent.com/OzTamir/skills/5b03a5fcb3b4df902d00cc754fcfbf4f1b962ba1/skills/full-deliberate-mode/SKILL.md",
+      "digest": "sha256:c3faab63e5e9c4b7c9892262d15324b24f23e440de6b27f3ba54a4f471f610e9"
+    },
+    {
+      "name": "blog-post-writer",
+      "type": "skill-md",
+      "description": "Turns a project, experiment, or reflection into a published post for posts.oztamir.com by interviewing first, then drafting section-by-section in Oz's voice.",
+      "url": "https://raw.githubusercontent.com/OzTamir/skills/5b03a5fcb3b4df902d00cc754fcfbf4f1b962ba1/skills/blog-post-writer/SKILL.md",
+      "digest": "sha256:b278957d216fb3aaff9f743b375862d0eb72b4dd5c30869cdd7775ff245927d5"
+    },
+    {
+      "name": "humanizer",
+      "type": "skill-md",
+      "description": "Removes signs of AI-generated writing — inflated symbolism, promotional language, em-dash overuse, rule-of-three, filler phrases — based on Wikipedia's guide.",
+      "url": "https://raw.githubusercontent.com/OzTamir/skills/5b03a5fcb3b4df902d00cc754fcfbf4f1b962ba1/skills/humanizer/SKILL.md",
+      "digest": "sha256:2dd885dd96a63e4c3cff281fba639788bff956b4bb759157ef0b0681a114eaa3"
+    },
+    {
+      "name": "import-skill",
+      "type": "skill-md",
+      "description": "Vendors an external Claude skill from a GitHub repo into the oz-skills plugin and wires up weekly auto-sync, attribution, and version bumps.",
+      "url": "https://raw.githubusercontent.com/OzTamir/skills/5b03a5fcb3b4df902d00cc754fcfbf4f1b962ba1/skills/import-skill/SKILL.md",
+      "digest": "sha256:2eb7ca2c9a56b3514c435826533c4eeb1fae5effa90cc00a57634d1b9ee90d84"
+    },
+    {
+      "name": "prompt-optimizer",
+      "type": "skill-md",
+      "description": "Turns a rough request into a well-engineered, model-specific prompt using the official prompting guide for the target model, interviewing for intent first.",
+      "url": "https://raw.githubusercontent.com/OzTamir/skills/5b03a5fcb3b4df902d00cc754fcfbf4f1b962ba1/skills/prompt-optimizer/SKILL.md",
+      "digest": "sha256:d5c1d459ce7c963375f083fd49987e71a9c55c969f5b4771e7a842523d8502e9"
+    }
+  ]
+}
