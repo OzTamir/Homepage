@@ -17,6 +17,11 @@ dist-ssr
 .dev.vars
 worker-configuration.d.ts
 
+# Local env (use .env.example as the template)
+.env
+.env.*
+!.env.example
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -31,3 +36,4 @@ worker-configuration.d.ts
 # Local agent tooling / skills
 .agents/
 skills-lock.json
+docs/superpowers/

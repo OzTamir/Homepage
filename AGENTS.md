@@ -6,15 +6,15 @@ Guidance for AI agents (and humans) working in this repo.
 
 The personal homepage at [oztamir.com](https://oztamir.com) — a single-page React
 app. It introduces Oz Tamir and links out to the [blog](https://posts.oztamir.com/)
-(Ghost CMS) and [talks](https://talks.oztamir.com/) site. Latest blog posts are
-fetched live from the Ghost Content API.
+(an Astro site) and [talks](https://talks.oztamir.com/) site. Latest blog posts are
+fetched live from the blog's static JSON feed (`$VITE_BLOG_URL/posts.json`).
 
 ## Stack
 
 - **React 18** + **TypeScript**
 - **Vite 8** (build + dev server) via the **`@cloudflare/vite-plugin`**
 - **Tailwind CSS 3** for styling
-- **axios** for the Ghost API call
+- **axios** for the talks API call (blog posts use `fetch`)
 - **lucide-react** for icons
 - Deployed as a **Cloudflare Worker** (static assets) — see [Deployment](#deployment)
 
@@ -67,6 +67,17 @@ Two ways it ships:
 > cross-platform deterministic. It's not imported anywhere — remove it only if
 > the dependency tree stops mixing picomatch majors.
 
+## Environment
+
+- `VITE_BLOG_URL` — base URL of the blog. The `~/posts` section fetches
+  `$VITE_BLOG_URL/posts.json` and links its heading there. Copy `.env.example`
+  to `.env` to set it (currently the temporary `posts.oztamir.workers.dev` host
+  until the Astro blog is repointed at `posts.oztamir.com`).
+
+  **In production (Workers Builds)** this is a build-time variable — set
+  `VITE_BLOG_URL` in the Worker's build configuration (Settings → Build →
+  Variables), or the bundled `~/posts` feed URL will be empty.
+
 ## Design language
 
 This site deliberately matches the talks and blog sites:
@@ -85,14 +96,13 @@ Keep new UI consistent with this. Prefer Tailwind utility classes over custom CS
 - `src/components/`
   - `Avatar.tsx` — round profile photo with golden halo
   - `SectionList.tsx` — generic titled list of rows; reused for any "section"
-  - `BlogPosts.tsx` — thin adapter: fetches posts, feeds `SectionList` (`~/posts`)
+  - `BlogPosts.tsx` — thin adapter: maps fetched posts, feeds `SectionList` (`~/posts`)
   - `Talks.tsx` — thin adapter: fetches talks, feeds `SectionList` (`~/talks`)
   - `Socials.tsx` — footer icon row
 - `src/hooks/`
-  - `useLatestPosts.ts` — fetches latest posts from Ghost
+  - `useLatestPosts.ts` — fetches latest posts from the blog's JSON feed
   - `useTalks.ts` — fetches talks from the talks site API
 - `src/api/`
-  - `ghostApi.ts` — axios client for the Ghost Content API
   - `talksApi.ts` — axios client for `talks.oztamir.com/api`
 - `wrangler.jsonc` — Cloudflare Worker config (see [Deployment](#deployment))
 - `vite.config.ts` — Vite + React + `@cloudflare/vite-plugin`
