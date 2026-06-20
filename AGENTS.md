@@ -7,7 +7,8 @@ Guidance for AI agents (and humans) working in this repo.
 The personal homepage at [oztamir.com](https://oztamir.com) — a single-page React
 app. It introduces Oz Tamir and links out to the [blog](https://posts.oztamir.com/)
 (an Astro site) and [talks](https://talks.oztamir.com/) site. Latest blog posts are
-fetched live from the blog's static JSON feed (`$VITE_BLOG_URL/posts.json`).
+fetched live from the blog's static JSON feed (`${BLOG_URL}/posts.json`, see
+`src/config.ts`).
 
 ## Stack
 
@@ -67,16 +68,15 @@ Two ways it ships:
 > cross-platform deterministic. It's not imported anywhere — remove it only if
 > the dependency tree stops mixing picomatch majors.
 
-## Environment
+## Configuration
 
-- `VITE_BLOG_URL` — base URL of the blog. The `~/posts` section fetches
-  `$VITE_BLOG_URL/posts.json` and links its heading there. Copy `.env.example`
-  to `.env` to set it (currently the temporary `posts.oztamir.workers.dev` host
-  until the Astro blog is repointed at `posts.oztamir.com`).
+Static config lives in `src/config.ts` (plain TS constants, no env vars):
 
-  **In production (Workers Builds)** this is a build-time variable — set
-  `VITE_BLOG_URL` in the Worker's build configuration (Settings → Build →
-  Variables), or the bundled `~/posts` feed URL will be empty.
+- `BLOG_URL` — base URL of the blog. `~/posts` fetches `${BLOG_URL}/posts.json`
+  and links its heading at `${BLOG_URL}/`.
+
+Kept as a checked-in constant rather than a `VITE_*` env var so the production
+build needs no build-time variables — change the value here and redeploy.
 
 ## Design language
 
@@ -93,6 +93,7 @@ Keep new UI consistent with this. Prefer Tailwind utility classes over custom CS
 ## Structure
 
 - `src/App.tsx` — page composition (Hero, `~/posts`, `~/talks`, Socials, Footer)
+- `src/config.ts` — static site config (`BLOG_URL`)
 - `src/components/`
   - `Avatar.tsx` — round profile photo with golden halo
   - `SectionList.tsx` — generic titled list of rows; reused for any "section"

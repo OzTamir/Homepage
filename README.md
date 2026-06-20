@@ -25,9 +25,8 @@ npm run lint     # eslint
 
 ## Configuration
 
-Copy `.env.example` to `.env` and set `VITE_BLOG_URL` to the blog's base URL.
-The `~/posts` section fetches `$VITE_BLOG_URL/posts.json` and links its heading
-there.
+Static config lives in `src/config.ts`. `BLOG_URL` is the blog's base URL; the
+`~/posts` section fetches `${BLOG_URL}/posts.json` and links its heading there.
 
 ## Project notes
 

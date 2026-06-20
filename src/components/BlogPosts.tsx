@@ -1,5 +1,6 @@
 import useLatestPosts from "../hooks/useLatestPosts";
 import SectionList, { SectionItem } from "./SectionList";
+import { BLOG_URL } from "../config";
 
 const formatDate = (iso: string) => {
   const d = new Date(iso);
@@ -33,7 +34,7 @@ const BlogPosts = () => {
   return (
     <SectionList
       title="~/posts"
-      titleHref={`${import.meta.env.VITE_BLOG_URL}/`}
+      titleHref={`${BLOG_URL}/`}
       items={items}
     />
   );
