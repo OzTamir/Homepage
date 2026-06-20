@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
-import api from "../api/ghostApi";
+
 interface Post {
-  id: string;
   title: string;
   slug: string;
-  published_at: string;
-  excerpt: string;
-  feature_image: string;
   url: string;
+  excerpt: string | null;
+  pubDate: string;
+  featureImage: string | null;
 }
+
+const FEED_URL = `${import.meta.env.VITE_BLOG_URL}/posts.json`;
 
 const useLatestPosts = () => {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -16,23 +17,18 @@ const useLatestPosts = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchPosts = async () => {
+    (async () => {
       try {
-        const response = await api.get("/posts", {
-          params: {
-            limit: 3,
-            fields: "id,title,slug,published_at,excerpt,feature_image,url",
-          },
-        });
-        setPosts(response.data.posts);
-      } catch (err) {
+        const res = await fetch(FEED_URL);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        setPosts((data.posts ?? []).slice(0, 3));
+      } catch {
         setError("Failed to fetch posts");
       } finally {
         setLoading(false);
       }
-    };
-
-    fetchPosts();
+    })();
   }, []);
 
   return { posts, loading, error };
