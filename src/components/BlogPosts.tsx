@@ -25,15 +25,15 @@ const BlogPosts = () => {
   const items: SectionItem[] = posts.map((post) => ({
     title: post.title,
     href: post.url,
-    excerpt: post.excerpt,
-    meta: formatDate(post.published_at),
+    excerpt: post.excerpt ?? undefined,
+    meta: formatDate(post.pubDate),
     external: true,
   }));
 
   return (
     <SectionList
       title="~/posts"
-      titleHref="https://posts.oztamir.com/"
+      titleHref={`${import.meta.env.VITE_BLOG_URL}/`}
       items={items}
     />
   );
