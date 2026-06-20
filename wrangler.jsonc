@@ -1,0 +1,14 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "homepage",
+  "compatibility_date": "2026-06-20",
+  // Assets-only Worker: no `main` Worker script, just the Vite build output.
+  // The Cloudflare Vite plugin fills in `assets.directory` automatically at build time.
+  "assets": {
+    // Serve index.html for any unmatched path (the app is a single page).
+    "not_found_handling": "single-page-application"
+  },
+  "observability": {
+    "enabled": true
+  }
+}
