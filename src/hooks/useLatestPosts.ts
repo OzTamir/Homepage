@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { BLOG_URL } from "../config";
 
 interface Post {
   title: string;
@@ -9,7 +10,7 @@ interface Post {
   featureImage: string | null;
 }
 
-const FEED_URL = `${import.meta.env.VITE_BLOG_URL}/posts.json`;
+const FEED_URL = `${BLOG_URL}/posts.json`;
 
 const useLatestPosts = () => {
   const [posts, setPosts] = useState<Post[]>([]);

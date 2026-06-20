@@ -1,0 +1,54 @@
+# robots.txt for oztamir.com
+# Policy: open. This site welcomes crawlers and AI agents (see /llms.txt).
+# Spec: RFC 9309 (https://www.rfc-editor.org/rfc/rfc9309)
+
+User-agent: *
+# Content Signals (https://contentsignals.org/) — declared usage preferences.
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
+Allow: /
+
+# --- AI crawlers (explicit, all allowed) ---
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+Sitemap: https://oztamir.com/sitemap.xml
