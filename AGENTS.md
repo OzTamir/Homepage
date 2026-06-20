@@ -57,6 +57,16 @@ Two ways it ships:
 > errors on older Vite — the committed `wrangler.jsonc` is what keeps deploys
 > deterministic.
 
+> **Why `picomatch` is a direct devDependency:** Vite 8 pulls in both
+> `picomatch@4` (vite, tinyglobby) and `picomatch@2` (micromatch, chokidar).
+> npm hoists one major to the top of `node_modules` and nests the other, but
+> picks differently on macOS vs Linux — so a lockfile generated locally fails
+> `npm ci` in CI (Linux) with a `picomatch ... does not satisfy` sync error.
+> Declaring `picomatch@^4` directly anchors the top-level hoist to `4.x` on every
+> platform (the 2.x consumers keep their own nested copy), making the lockfile
+> cross-platform deterministic. It's not imported anywhere — remove it only if
+> the dependency tree stops mixing picomatch majors.
+
 ## Design language
 
 This site deliberately matches the talks and blog sites:
